@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductList">
+
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="113dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/add_button_id"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="500dp"
+        android:layout_marginEnd="252dp"
+        android:layout_marginBottom="19dp"
+        android:text="@string/dots"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:paddingTop="30dp">
+
+    </ListView>
+
+    <Button
+        android:id="@+id/add_button_id"
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/plus_button" />
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/name"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/text_price"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/text_name"
+        android:text="@string/price"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/text_amount"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/text_price"
+        android:text="@string/amount"
+        android:textAlignment="viewStart" />
+
+    <TextView
+        android:id="@+id/text_bought"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/text_amount"
+        android:text="@string/bought"
+        android:textAlignment="textStart"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+</RelativeLayout>

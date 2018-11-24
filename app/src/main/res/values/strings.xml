@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">NewApp</string>
+    <string name="button_go">GO!</string>
+    <string name="plus_button">+</string>
+    <string name="add_product">Add product</string>
+    <string name="name">Name</string>
+    <string name="price">Price</string>
+    <string name="amount">Amount</string>
+    <string name="bought">Bought</string>
+    <string name="view">View</string>
+    <string name="save">Save</string>
+    <string name="dots">Edit</string>
+    <string name="change_color">Change all buttons color</string>
+    <string name="red">red</string>
+    <string name="green">green</string>
+    <string name="grey">grey</string>
+    <string name="change_size">Change all fonts size</string>
+    <string name="small">small</string>
+    <string name="big">big</string>
+    <string name="medium">medium</string>
+    <string name="permission_label">Permission to add new product</string>
+    <string name="permission_description">This permission is required to allow user to add new product and send notification.</string>
+</resources>
