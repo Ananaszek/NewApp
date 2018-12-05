@@ -15,6 +15,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class AddProduct extends AppCompatActivity {
 
     private EditText etName, etPrice, etAmount;
@@ -26,7 +29,12 @@ public class AddProduct extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private int color;
     private float size;
-
+    private FirebaseDatabase database;
+    private DatabaseReference dbRef;
+    private DatabaseReference priceRef;
+    private DatabaseReference amountRef;
+    private DatabaseReference nameRef;
+    private DatabaseReference boughtRef;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -41,6 +49,12 @@ public class AddProduct extends AppCompatActivity {
         viewButton = (Button) findViewById(R.id.view_id);
         checkBox = (CheckBox) findViewById(R.id.check_id);
         myDB = new DatabaseHelper(this);
+        database = FirebaseDatabase.getInstance();
+        dbRef = database.getReference("products");
+        nameRef = dbRef.child("name");
+        priceRef = dbRef.child("price");
+        amountRef = dbRef.child("amount");
+        boughtRef = dbRef.child("bought");
 
 
         viewButton.setOnClickListener(new View.OnClickListener() {
@@ -87,12 +101,21 @@ public class AddProduct extends AppCompatActivity {
     }
 
     public void addData(String name, String price, String amount, int bought) {
-        boolean insertData = myDB.addData(name, price, amount, bought);
+//        boolean insertData = myDB.addData(name, price, amount, bought);
+//
+//        if (insertData) {
+//            Toast.makeText(AddProduct.this, "Data inserted correctly", Toast.LENGTH_LONG).show();
+//        } else {
+//            Toast.makeText(AddProduct.this, "Something went wrong", Toast.LENGTH_LONG).show();
+//        }
 
-        if (insertData) {
-            Toast.makeText(AddProduct.this, "Data inserted correctly", Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(AddProduct.this, "Something went wrong", Toast.LENGTH_LONG).show();
+        String key = dbRef.push().getKey();
+
+        if(key!=null) {
+            dbRef.child(key).child("name").setValue(name);
+            dbRef.child(key).child("amount").setValue(amount);
+            dbRef.child(key).child("price").setValue(price);
+            dbRef.child(key).child("bought").setValue(bought);
         }
     }
 
