@@ -53,7 +53,7 @@ public class ProductList extends AppCompatActivity {
     private ListView listView;
     protected Object mActionMode;
     public int selectedItem = -1;
-    private Button button, editBtn;
+    private Button button, editBtn, signOutBtn;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private int color;
@@ -69,6 +69,7 @@ public class ProductList extends AppCompatActivity {
     private FourColumn_ListAdapter adapter;
     private Context context;
     private ArrayList<String> listKeys;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +88,7 @@ public class ProductList extends AppCompatActivity {
         fireProducts = dbRef.child("products");
         context = this;
         listKeys = new ArrayList<>();
+        mAuth = FirebaseAuth.getInstance();
 
 //        Cursor data = myDB.getListContents();
 //        Cursor data = getContentResolver().query(ProductContract.ProductEntry.CONTENT_URI, null, null, null, null);
@@ -115,6 +117,16 @@ public class ProductList extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         editBtn = (Button) findViewById(R.id.edit_button);
+        signOutBtn = (Button)findViewById(R.id.signOutBtnId);
+
+        signOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                Intent intent = new Intent(ProductList.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Intent receivedIntent = getIntent();
         color = receivedIntent.getIntExtra("color", -1);

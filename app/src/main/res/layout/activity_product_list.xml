@@ -77,4 +77,13 @@
         android:textAlignment="textStart"
         android:textAppearance="@style/TextAppearance.AppCompat" />
 
+    <Button
+        android:id="@+id/signOutBtnId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="444dp"
+        android:layout_marginRight="200dp"
+        android:text="sign out" />
+
 </RelativeLayout>
